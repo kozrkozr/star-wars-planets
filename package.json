@@ -9,6 +9,20 @@
     "lint": "ng lint",
     "e2e": "ng e2e"
   },
+  "husky": {
+    "hooks": {
+      "pre-commit": "lint-staged"
+    }
+  },
+  "lint-staged": {
+    "*.ts": [
+      "eslint --fix",
+      "prettier --write"
+    ],
+    "*.{json,css,scss,md,html}": [
+      "prettier --write"
+    ]
+  },
   "private": true,
   "dependencies": {
     "@angular/animations": "~10.1.6",
@@ -25,12 +39,27 @@
   },
   "devDependencies": {
     "@angular-devkit/build-angular": "~0.1001.7",
+    "@angular-eslint/builder": "0.5.0-beta.4",
+    "@angular-eslint/eslint-plugin": "0.5.0-beta.4",
+    "@angular-eslint/eslint-plugin-template": "0.5.0-beta.4",
+    "@angular-eslint/template-parser": "0.5.0-beta.4",
     "@angular/cli": "~10.1.7",
     "@angular/compiler-cli": "~10.1.6",
-    "@types/node": "^12.11.1",
     "@types/jasmine": "~3.5.0",
     "@types/jasminewd2": "~2.0.3",
+    "@types/node": "^12.11.1",
+    "@typescript-eslint/eslint-plugin": "4.3.0",
+    "@typescript-eslint/eslint-plugin-tslint": "^4.4.1",
+    "@typescript-eslint/parser": "4.3.0",
     "codelyzer": "^6.0.0",
+    "eslint": "^7.6.0",
+    "eslint-config-airbnb-typescript": "^11.2.1",
+    "eslint-config-prettier": "^6.12.0",
+    "eslint-import-resolver-typescript": "^2.3.0",
+    "eslint-plugin-import": "^2.22.1",
+    "eslint-plugin-prefer-arrow": "^1.2.2",
+    "eslint-plugin-simple-import-sort": "^5.0.3",
+    "husky": "^4.3.0",
     "jasmine-core": "~3.6.0",
     "jasmine-spec-reporter": "~5.0.0",
     "karma": "~5.0.0",
@@ -38,6 +67,8 @@
     "karma-coverage-istanbul-reporter": "~3.0.2",
     "karma-jasmine": "~4.0.0",
     "karma-jasmine-html-reporter": "^1.5.0",
+    "lint-staged": "^10.4.0",
+    "prettier": "^2.1.2",
     "protractor": "~7.0.0",
     "ts-node": "~8.3.0",
     "tslint": "~6.1.0",

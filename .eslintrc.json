@@ -1,0 +1,89 @@
+{
+  "root": true,
+  "overrides": [
+    {
+      "files": ["*.ts"],
+      "parser": "@typescript-eslint/parser",
+      "parserOptions": {
+        "project": "./tsconfig.app.json",
+        "ecmaVersion": 2020,
+        "createDefaultProgram": true
+      },
+      "plugins": ["import", "prefer-arrow", "@typescript-eslint", "simple-import-sort"],
+      "extends": [
+        "eslint:recommended",
+        "plugin:import/errors",
+        "plugin:import/warnings",
+        "plugin:import/typescript",
+        "plugin:@angular-eslint/recommended",
+        "plugin:@typescript-eslint/recommended",
+        "plugin:@typescript-eslint/recommended-requiring-type-checking",
+        "prettier",
+        "prettier/@typescript-eslint",
+        "airbnb-typescript/base"
+      ],
+      "rules": {
+        "@angular-eslint/directive-selector": [
+          "error",
+          {
+            "type": "attribute",
+            "prefix": "app",
+            "style": "camelCase"
+          }
+        ],
+        "quotes": [
+          "error",
+          "single",
+          {
+            "allowTemplateLiterals": true
+          }
+        ],
+        "prefer-arrow/prefer-arrow-functions": [
+          "warn",
+          {
+            "disallowPrototype": true,
+            "singleReturnOnly": false,
+            "classPropertiesAllowed": false
+          }
+        ],
+        "simple-import-sort/sort": [
+          "error",
+          {
+            "groups": [
+              // Side effect imports.
+              ["^\\u0000"],
+              // Node packages.
+              ["^[^.]|^@?\\w"],
+              // Angular packages.
+              ["^@angular/"],
+              // Absolute paths.
+              ["^@core/|^@shared/|^@pages/|^@environments/|^src/"],
+              // Relative imports.
+              ["^\\."]
+            ]
+          }
+        ],
+        "sort-imports": "off",
+        "import/order": "off",
+        "@typescript-eslint/no-explicit-any": ["error", {"ignoreRestArgs": true}],
+        "import/prefer-default-export": "off"
+      }
+    },
+    {
+      "files": ["*.component.html"],
+      "extends": ["plugin:@angular-eslint/template/recommended"],
+      "rules": {
+        "max-len": [
+          "error",
+          {
+            "code": 140
+          }
+        ]
+      }
+    },
+    {
+      "files": ["*.component.ts"],
+      "extends": ["plugin:@angular-eslint/template/process-inline-templates"]
+    }
+  ]
+}
