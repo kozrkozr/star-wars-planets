@@ -1,0 +1,17 @@
+@import '~@angular/material/theming';
+
+@include mat-core();
+
+$star-wars-primary: mat-palette($mat-yellow);
+$star-wars-accent: mat-palette($mat-light-blue, A200, A100, A400);
+
+$star-wars-theme: mat-dark-theme(
+  (
+    color: (
+      primary: $star-wars-primary,
+      accent: $star-wars-accent,
+    ),
+  )
+);
+
+@include angular-material-theme($star-wars-theme);

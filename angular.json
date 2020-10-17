@@ -26,6 +26,7 @@
             "assets": ["src/favicon.ico", "src/assets"],
             "styles": [
               "./node_modules/@angular/material/prebuilt-themes/pink-bluegrey.css",
+              "src/styles/star-wars-theme.scss",
               "src/styles.scss"
             ],
             "scripts": []
