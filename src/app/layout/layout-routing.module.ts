@@ -7,6 +7,17 @@ const routes: Routes = [
   {
     path: '',
     component: LayoutComponent,
+    children: [
+      {
+        path: 'planets',
+        loadChildren: () =>
+          import('@app/pages/planets/planets.module').then((m) => m.PlanetsModule),
+      },
+      {
+        path: '**',
+        redirectTo: 'planets',
+      },
+    ],
   },
 ];
 

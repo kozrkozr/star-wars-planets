@@ -1,3 +1,5 @@
+export type Constructor<T> = new (...args: any[]) => T;
+
 export type Link = string;
 
 export interface BaseGetListResponse<T> {

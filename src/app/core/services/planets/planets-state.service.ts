@@ -27,4 +27,8 @@ export class PlanetsStateService {
   getPlanets(): Observable<Planet[]> {
     return this.planetsState$.asObservable().pipe(pluck('planets'));
   }
+
+  getLoadPlanetsLink(): Observable<string> {
+    return this.planetsState$.asObservable().pipe(pluck('nextPlanetsPortionLink'));
+  }
 }
