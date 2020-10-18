@@ -1,8 +1,10 @@
-<mat-toolbar class="toolbar">
-  <a mat-button color="primary" [routerLink]="['/']">STAR WARS PLANETS</a>
-</mat-toolbar>
 <mat-sidenav-container class="sidenav-container">
   <mat-sidenav-content>
-    <router-outlet></router-outlet>
+    <mat-toolbar class="toolbar">
+      <a mat-button color="primary" [routerLink]="['/']">STAR WARS PLANETS</a>
+    </mat-toolbar>
+    <main>
+      <router-outlet></router-outlet>
+    </main>
   </mat-sidenav-content>
 </mat-sidenav-container>
