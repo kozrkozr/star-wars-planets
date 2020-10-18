@@ -2,6 +2,7 @@
   <mat-sidenav-content>
     <mat-toolbar class="toolbar">
       <a mat-button color="primary" [routerLink]="['/']">STAR WARS PLANETS</a>
+      <span>Loaded pages: {{ loadedPlanetsPagesQuantity$ | async }}</span>
     </mat-toolbar>
     <main>
       <router-outlet></router-outlet>

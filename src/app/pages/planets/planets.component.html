@@ -1,3 +1,15 @@
-<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10">
-  <app-planet-item *ngFor="let planet of planets$ | async" [planet]="planet"></app-planet-item>
+<div fxLayout="column" fxLayoutGap="32px" fxLayoutAlign="flex-start" class="planets-container">
+  <app-planet-item
+    *ngFor="let planet of planets$ | async"
+    [planet]="planet"
+    class="planet-item"
+  ></app-planet-item>
+  <mat-card class="planet-item" *ngIf="!(isAllPlanetsLoaded$ | async)">
+    <mat-card-actions fxLayoutAlign="center center">
+      <app-loading-btn
+        [isLoading]="isPlanetsLoading$ | async"
+        (click)="loadMorePlanets$.next(true)"
+      ></app-loading-btn>
+    </mat-card-actions>
+  </mat-card>
 </div>
