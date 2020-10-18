@@ -1,4 +1,4 @@
-<mat-card>
+<mat-card (click)="clicked.emit(planet)">
   <mat-card-header>
     <mat-icon mat-card-avatar>place</mat-icon>
     <mat-card-title>{{ planet.name }}</mat-card-title>

@@ -1,6 +1,6 @@
 import {Planet} from '@app/core/services/planets/types';
 
-import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
+import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@angular/core';
 
 @Component({
   selector: 'app-planet-item',
@@ -10,4 +10,6 @@ import {ChangeDetectionStrategy, Component, Input} from '@angular/core';
 })
 export class PlanetItemComponent {
   @Input() planet: Planet;
+
+  @Output() clicked = new EventEmitter<Planet>();
 }

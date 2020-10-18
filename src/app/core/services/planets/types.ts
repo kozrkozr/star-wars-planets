@@ -45,9 +45,11 @@ export interface PlanetsState {
   isPlanetsLoading: boolean;
 }
 
+export const BASE_PLANETS_API_URL = 'http://swapi.dev/api/planets/';
+
 export const INITIAL_PLANETS_STATE: PlanetsState = {
   planets: [],
-  nextPlanetsPortionLink: 'https://swapi.dev/api/planets/',
+  nextPlanetsPortionLink: BASE_PLANETS_API_URL,
   previousPlanetsPortionLink: null,
   planetsCount: 0,
   loadedPagesQuantity: 0,

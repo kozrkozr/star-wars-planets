@@ -3,6 +3,7 @@
     *ngFor="let planet of planets$ | async"
     [planet]="planet"
     class="planet-item"
+    (clicked)="handleClickedPlanet($event)"
   ></app-planet-item>
   <mat-card class="planet-item" *ngIf="!(isAllPlanetsLoaded$ | async)">
     <mat-card-actions fxLayoutAlign="center center">

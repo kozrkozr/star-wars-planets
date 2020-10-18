@@ -1,3 +1,4 @@
+import {PlanetInfoComponent} from '@app/pages/planets/components/planet-info/planet-info.component';
 import {PlanetsComponent} from '@app/pages/planets/planets.component';
 
 import {NgModule} from '@angular/core';
@@ -7,6 +8,10 @@ const routes: Routes = [
   {
     path: '',
     component: PlanetsComponent,
+  },
+  {
+    path: ':id',
+    component: PlanetInfoComponent,
   },
 ];
 
