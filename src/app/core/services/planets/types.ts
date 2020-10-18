@@ -1,16 +1,9 @@
-export type Link = string;
+import {Link} from '@app/core/types';
 
 export interface BaseDto {
   name: string;
   films: Link[];
   url: Link;
-}
-
-export interface BaseGetListResponse<T> {
-  count: number;
-  next: Link;
-  previous: Link;
-  results: T[];
 }
 
 export interface PlanetResident extends BaseDto {
@@ -42,3 +35,21 @@ export interface Planet extends BaseDto {
   surface_water: string;
   terrain: string;
 }
+
+export interface PlanetsState {
+  planets: Planet[];
+  nextPlanetsPortionLink: Link;
+  previousPlanetsPortionLink: Link;
+  planetsCount: number;
+  loadedPagesQuantity: number;
+  isPlanetsLoading: boolean;
+}
+
+export const INITIAL_PLANETS_STATE: PlanetsState = {
+  planets: [],
+  nextPlanetsPortionLink: 'https://swapi.dev/api/planets/',
+  previousPlanetsPortionLink: null,
+  planetsCount: 0,
+  loadedPagesQuantity: 0,
+  isPlanetsLoading: false,
+};
