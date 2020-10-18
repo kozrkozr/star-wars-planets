@@ -1,0 +1,5 @@
+<button mat-button [disabled]="isLoading" (click)="clicked.emit()">
+  <div fxLayout="row" fxLayoutAlign="start center">
+    <mat-spinner diameter="20" *ngIf="isLoading"></mat-spinner><span>{{ btnText }}</span>
+  </div>
+</button>
