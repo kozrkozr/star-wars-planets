@@ -1,1 +1,3 @@
-<app-planet-item *ngFor="let planet of planets$ | async" [planet]="planet"></app-planet-item>
+<div fxLayout="column" fxLayoutAlign="center center" fxLayoutGap="10">
+  <app-planet-item *ngFor="let planet of planets$ | async" [planet]="planet"></app-planet-item>
+</div>

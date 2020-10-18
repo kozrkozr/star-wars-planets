@@ -1,9 +1,18 @@
-<mat-card class="example-card">
+<mat-card>
   <mat-card-header>
+    <mat-icon mat-card-avatar>place</mat-icon>
     <mat-card-title>{{ planet.name }}</mat-card-title>
+    <mat-card-subtitle>planet</mat-card-subtitle>
   </mat-card-header>
+  <mat-divider></mat-divider>
   <mat-card-content>
-    <p>Climate: {{ planet.climate }}</p>
-    <p>Population: {{ planet.population }}</p>
+    <div fxLayout="column">
+      <div>
+        <span>Climate:</span> <span class="mat-body-strong"> {{ planet.climate }}</span>
+      </div>
+      <div>
+        <span> Population:</span> <span class="mat-body-2"> {{ planet.population }}</span>
+      </div>
+    </div>
   </mat-card-content>
 </mat-card>
