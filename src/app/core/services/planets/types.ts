@@ -36,6 +36,10 @@ export interface Planet extends BaseDto {
   terrain: string;
 }
 
+// type guard for planet resident
+export const isPlanetResident = (resident: Link | PlanetResident): resident is PlanetResident =>
+  (resident as PlanetResident).height !== undefined;
+
 export interface PlanetsState {
   planets: Planet[];
   nextPlanetsPortionLink: Link;

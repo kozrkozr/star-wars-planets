@@ -1,5 +1,6 @@
 import {PlanetsService} from '@app/core/services/planets/planets.service';
-import {Planet, PlanetResident} from '@app/core/services/planets/types';
+import {isPlanetResident, Planet, PlanetResident} from '@app/core/services/planets/types';
+import {Link} from '@app/core/types';
 import {Destroyable} from '@app/core/utils/destroyable';
 import {ResidentInfoModalComponent} from '@app/shared/components/resident-info-modal/resident-info-modal.component';
 import {Observable} from 'rxjs';
@@ -33,11 +34,13 @@ export class PlanetInfoComponent extends Destroyable() implements OnInit {
     );
   }
 
-  openResidentInfoModal(resident: PlanetResident): void {
-    this.dialog.open<ResidentInfoModalComponent, PlanetResident>(ResidentInfoModalComponent, {
-      data: resident,
-      maxWidth: 700,
-      width: '80vw',
-    });
+  openResidentInfoModal(resident: PlanetResident | Link): void {
+    if (isPlanetResident(resident)) {
+      this.dialog.open<ResidentInfoModalComponent, PlanetResident>(ResidentInfoModalComponent, {
+        data: resident,
+        maxWidth: 700,
+        width: '80vw',
+      });
+    }
   }
 }
