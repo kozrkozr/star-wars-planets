@@ -1,18 +1,24 @@
 <mat-card (click)="clicked.emit(planet)">
-  <mat-card-header>
-    <mat-icon mat-card-avatar>place</mat-icon>
-    <mat-card-title>{{ planet.name }}</mat-card-title>
-    <mat-card-subtitle>planet</mat-card-subtitle>
+  <mat-card-header fxLayoutAlign="center center">
+    <mat-card-title
+      ><span class="mat-h1">{{ planet.name }}</span></mat-card-title
+    >
+    <mat-card-subtitle class="text-align-center"><span>PLANET</span></mat-card-subtitle>
   </mat-card-header>
   <mat-divider></mat-divider>
   <mat-card-content>
-    <div fxLayout="column">
-      <div>
-        <span>Climate:</span> <span class="mat-body-strong"> {{ planet.climate }}</span>
-      </div>
-      <div>
-        <span> Population:</span> <span class="mat-body-strong"> {{ planet.population }}</span>
-      </div>
+    <div fxLayout="row" fxLayoutAlign="center center">
+      <app-info-tile>
+        <span info-tile-header>CLIMATE</span>
+        <span>{{ planet.climate }}</span>
+      </app-info-tile>
+      <app-info-tile>
+        <span info-tile-header>POPULATION</span>
+        <span>{{ planet.population }}</span>
+      </app-info-tile>
     </div>
   </mat-card-content>
+  <mat-card-actions class="text-align-center">
+    <a mat-button color="accent">MORE DETAILS</a>
+  </mat-card-actions>
 </mat-card>

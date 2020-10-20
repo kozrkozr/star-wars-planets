@@ -1,17 +1,33 @@
-.sidenav-container {
-  width: 100%;
+:host {
+  ::ng-deep mat-toolbar {
+    height: 85px;
+    position: sticky;
+    position: -webkit-sticky; /* Safari */
+    top: 0;
+    z-index: 2;
+    padding: 10px;
+    background-color: black;
+    background-image: radial-gradient(white, rgba(255, 255, 255, 0.2) 2px, transparent 40px),
+      radial-gradient(white, rgba(255, 255, 255, 0.15) 1px, transparent 30px),
+      radial-gradient(white, rgba(255, 255, 255, 0.1) 2px, transparent 40px),
+      radial-gradient(rgba(255, 255, 255, 0.4), rgba(255, 255, 255, 0.1) 2px, transparent 30px);
+    background-size: 550px 550px, 350px 350px, 250px 250px, 150px 150px;
+    background-position: 0 0, 40px 60px, 130px 270px, 70px 100px;
 
-  mat-sidenav-content {
-    height: 100vh;
-
-    mat-toolbar {
-      position: fixed;
-      z-index: 2;
+    .logo {
+      line-height: 1;
+      font-size: 30px;
     }
 
-    main {
-      padding: 20px;
-      margin-top: 70px;
+    .loaded-pages-indicator {
+      letter-spacing: 3px;
+      font-size: 12px;
     }
+  }
+
+  main {
+    max-width: 600px;
+    margin: auto;
+    padding: 20px;
   }
 }

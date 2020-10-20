@@ -1,25 +1,64 @@
-<mat-card *ngIf="planetInfo$ | async as planetInfo; else loadingSpinner">
-  <mat-card-header>
-    {{ planetInfo.name }}
-  </mat-card-header>
-  <mat-card-content>
-    <mat-list>
-      <mat-list-item>Name: {{ planetInfo.name }} </mat-list-item>
-      <mat-list-item>Rotation period: {{ planetInfo.rotation_period }} </mat-list-item>
-      <mat-list-item>Diameter: {{ planetInfo.diameter }} </mat-list-item>
-      <mat-list-item>Climate: {{ planetInfo.climate }} </mat-list-item>
-      <mat-list-item>Gravity: {{ planetInfo.gravity }} </mat-list-item>
-      <mat-list-item>Terrain: {{ planetInfo.terrain }} </mat-list-item>
-      <mat-list-item>Population: {{ planetInfo.population }} </mat-list-item>
-      <mat-list-item
-        >Residents:
-        <span *ngFor="let resident of planetInfo.residents">{{
-          resident.name
-        }}</span></mat-list-item
+<ng-container *ngIf="planetInfo$ | async as planetInfo; else loadingSpinner">
+  <a mat-button color="accent" class="mb-10" routerLink="/"
+    ><mat-icon>arrow_back_ios</mat-icon>GO TO PLANETS LIST</a
+  >
+  <mat-card class="text-align-center mt-10">
+    <mat-card-header fxLayoutAlign="center center">
+      <mat-card-title
+        ><span class="mat-h1">{{ planetInfo.name }}</span></mat-card-title
       >
-    </mat-list>
-  </mat-card-content>
-</mat-card>
+      <mat-card-subtitle class="text-align-center"><span>PLANET</span></mat-card-subtitle>
+    </mat-card-header>
+    <mat-divider></mat-divider>
+    <mat-card-content>
+      <div fxLayout="row wrap">
+        <app-info-tile fxFlex="50%">
+          <span info-tile-header>ROTATION PERIOD</span>
+          <span>{{ planetInfo.rotation_period }}</span>
+        </app-info-tile>
+        <app-info-tile fxFlex="50%">
+          <span info-tile-header>DIAMETER</span>
+          <span>{{ planetInfo.diameter }}</span>
+        </app-info-tile>
+        <app-info-tile fxFlex="50%">
+          <span info-tile-header>CLIMATE</span>
+          <span>{{ planetInfo.climate }}</span>
+        </app-info-tile>
+        <app-info-tile fxFlex="50%">
+          <span info-tile-header>GRAVITY</span>
+          <span>{{ planetInfo.gravity }}</span>
+        </app-info-tile>
+        <app-info-tile fxFlex="50%">
+          <span info-tile-header>TERRAIN</span>
+          <span>{{ planetInfo.terrain }}</span>
+        </app-info-tile>
+        <app-info-tile fxFlex="50%">
+          <span info-tile-header>POPULATION</span>
+          <span>{{ planetInfo.population }}</span>
+        </app-info-tile>
+      </div>
+      <ng-container *ngIf="planetInfo.residents?.length; else notPopulatedLabel">
+        <p>
+          <span>RESIDENTS</span>
+        </p>
+        <div>
+          <button
+            mat-button
+            color="accent"
+            *ngFor="let resident of planetInfo.residents"
+            (click)="openResidentInfoModal(resident)"
+          >
+            {{ resident.name }}
+          </button>
+        </div>
+      </ng-container>
+      <ng-template #notPopulatedLabel> NOT POPULATED </ng-template>
+    </mat-card-content>
+  </mat-card>
+</ng-container>
+
 <ng-template #loadingSpinner>
-  <mat-spinner diameter="30"></mat-spinner>
+  <div fxLayout="row" fxLayoutAlign="center center">
+    <mat-spinner diameter="70"></mat-spinner>
+  </div>
 </ng-template>

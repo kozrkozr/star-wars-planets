@@ -14,4 +14,16 @@ $star-wars-theme: mat-dark-theme(
   )
 );
 
+.color-primary {
+  color: mat-color($star-wars-primary);
+}
+
+.color-accent {
+  color: mat-color($star-wars-accent);
+}
+
+.color-black {
+  color: black;
+}
+
 @include angular-material-theme($star-wars-theme);

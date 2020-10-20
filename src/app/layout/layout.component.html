@@ -1,11 +1,16 @@
-<mat-sidenav-container class="sidenav-container">
-  <mat-sidenav-content>
-    <mat-toolbar class="toolbar">
-      <a mat-button color="primary" [routerLink]="['/']">STAR WARS PLANETS</a>
-      <span>Loaded pages: {{ loadedPlanetsPagesQuantity$ | async }}</span>
-    </mat-toolbar>
-    <main>
-      <router-outlet></router-outlet>
-    </main>
-  </mat-sidenav-content>
-</mat-sidenav-container>
+<div class="layout-container">
+  <mat-toolbar fxLayout="row" fxLayoutAlign="center center" class="mat-elevation-z10">
+    <div fxLayout="column" fxLayoutAlign="center center">
+      <a routerLink="/" class="star-wars-font color-primary logo" fxLayout="column">
+        <span>STAR</span>
+        <span>WARS</span>
+      </a>
+      <small class="loaded-pages-indicator"
+        >loaded pages: {{ loadedPlanetsPagesQuantity$ | async }}</small
+      >
+    </div>
+  </mat-toolbar>
+  <main>
+    <router-outlet></router-outlet>
+  </main>
+</div>

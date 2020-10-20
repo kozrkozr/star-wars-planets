@@ -11,5 +11,7 @@ import {ChangeDetectionStrategy, Component, EventEmitter, Input, Output} from '@
 export class PlanetItemComponent {
   @Input() planet: Planet;
 
+  @Input() preview: boolean;
+
   @Output() clicked = new EventEmitter<Planet>();
 }
