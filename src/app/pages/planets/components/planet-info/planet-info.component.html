@@ -11,7 +11,7 @@
     </mat-card-header>
     <mat-divider></mat-divider>
     <mat-card-content>
-      <div fxLayout="row wrap">
+      <div fxLayout="row wrap" fxLayout.lt-sm="column">
         <app-info-tile fxFlex="50%">
           <span info-tile-header>ROTATION PERIOD</span>
           <span>{{ planetInfo.rotation_period }}</span>
