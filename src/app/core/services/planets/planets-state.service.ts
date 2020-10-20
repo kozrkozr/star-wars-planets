@@ -45,4 +45,8 @@ export class PlanetsStateService {
   get planetsStateObservable(): Observable<PlanetsState> {
     return this.planetsState$.asObservable();
   }
+
+  get isPlanetsAlreadyLoaded(): boolean {
+    return !!this.planetsState$.getValue().planets?.length;
+  }
 }

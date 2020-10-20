@@ -2,9 +2,10 @@ import {PlanetsStateService} from '@app/core/services/planets/planets-state.serv
 import {PlanetsService} from '@app/core/services/planets/planets.service';
 import {Planet} from '@app/core/services/planets/types';
 import {Destroyable} from '@app/core/utils/destroyable';
+import {addPipeIf} from '@app/core/utils/general.utils';
 import {extractPlanetsIdFromLink} from '@app/pages/planets/planets.common';
-import {BehaviorSubject, Observable} from 'rxjs';
-import {map, switchMap} from 'rxjs/operators';
+import {Observable, Subject} from 'rxjs';
+import {map, startWith, switchMap} from 'rxjs/operators';
 
 import {Component, OnInit} from '@angular/core';
 import {Router} from '@angular/router';
@@ -21,7 +22,7 @@ export class PlanetsComponent extends Destroyable() implements OnInit {
 
   isAllPlanetsLoaded$: Observable<boolean>;
 
-  loadMorePlanets$ = new BehaviorSubject<boolean>(true);
+  loadMorePlanets$ = new Subject<boolean>();
 
   constructor(
     private planetsService: PlanetsService,
@@ -41,6 +42,7 @@ export class PlanetsComponent extends Destroyable() implements OnInit {
     this.loadMorePlanets$
       .asObservable()
       .pipe(
+        addPipeIf(!this.planetsState.isPlanetsAlreadyLoaded, startWith({})),
         switchMap(() => this.planetsState.loadPlanets()),
         this.takeUntilDestroyed(),
       )
