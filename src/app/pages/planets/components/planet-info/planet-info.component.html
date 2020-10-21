@@ -1,7 +1,7 @@
+<a mat-button color="accent" class="mb-10" routerLink="/"
+  ><mat-icon>arrow_back_ios</mat-icon>GO TO PLANETS LIST</a
+>
 <ng-container *ngIf="planetInfo$ | async as planetInfo; else loadingSpinner">
-  <a mat-button color="accent" class="mb-10" routerLink="/"
-    ><mat-icon>arrow_back_ios</mat-icon>GO TO PLANETS LIST</a
-  >
   <mat-card class="text-align-center mt-10">
     <mat-card-header fxLayoutAlign="center center">
       <mat-card-title
